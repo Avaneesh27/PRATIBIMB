@@ -1,0 +1,41 @@
+# Git ignore rules for the root project
+
+# Dependency directories
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+dist/
+frontend/dist/
+dist-ssr/
+
+# Python caches and virtualenvs
+__pycache__/
+backend/__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Environment files
+.env
+*.env.local
+*.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Agent/Brain directories
+brain/
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store

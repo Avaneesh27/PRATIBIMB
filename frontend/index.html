@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pratibimb - Climate Digital Twin</title>
+    <!-- Leaflet mapping library resources -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+      /* Ensure leaflet elements style properly with dark theme */
+      .leaflet-container {
+        background: #060a12 !important;
+      }
+      .leaflet-bar {
+        border: 1px solid rgba(0, 240, 255, 0.25) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+      }
+      .leaflet-bar a {
+        background-color: rgba(10, 16, 30, 0.85) !important;
+        color: white !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(8px);
+      }
+      .leaflet-bar a:hover {
+        background-color: rgba(0, 240, 255, 0.25) !important;
+        color: var(--cyan) !important;
+      }
+      .leaflet-control-layers {
+        background-color: rgba(10, 16, 30, 0.85) !important;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(0, 240, 255, 0.25) !important;
+        color: white !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 0.75rem !important;
+        border-radius: var(--radius-md) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
