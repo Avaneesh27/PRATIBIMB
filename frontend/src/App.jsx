@@ -870,8 +870,8 @@ export default function App() {
                         : 'Temperature boundary shaded to ±1.5 standard deviations (Red: Max, Blue: Min):'}
                     </div>
 
-                    <div className="chart-container" style={{ height: '240px', borderBottom: '1px solid var(--border-subtle)' }}>
-                      <svg style={{ width: '100%', height: '100%' }}>
+                    <div className="chart-container" style={{ height: '240px', borderBottom: '1px solid var(--border-subtle)', position: 'relative' }}>
+                      <svg viewBox="0 0 580 240" style={{ width: '100%', height: '100%' }}>
                         <defs>
                           <linearGradient id="envelope-glow-full" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="0%" stopColor="var(--cyan)" stopOpacity="0.25" />
@@ -880,9 +880,9 @@ export default function App() {
                         </defs>
                         
                         {/* Reference lines */}
-                        <line x1="0" y1="50" x2="100%" y2="50" stroke="var(--border-subtle)" strokeWidth="0.5" />
-                        <line x1="0" y1="120" x2="100%" y2="120" stroke="var(--border-subtle)" strokeWidth="0.5" />
-                        <line x1="0" y1="180" x2="100%" y2="180" stroke="var(--border-subtle)" strokeWidth="0.5" />
+                        <line x1="0" y1="50" x2="580" y2="50" stroke="var(--border-subtle)" strokeWidth="0.5" />
+                        <line x1="0" y1="120" x2="580" y2="120" stroke="var(--border-subtle)" strokeWidth="0.5" />
+                        <line x1="0" y1="180" x2="580" y2="180" stroke="var(--border-subtle)" strokeWidth="0.5" />
                         
                         {(() => {
                           const isRain = activeLayer === 'rain_ground';
@@ -958,15 +958,17 @@ export default function App() {
                             );
                           }
                         })()}
+
+                        {/* Integrated timeline x-axis labels */}
+                        {forecastData.map((d, idx) => {
+                          const x = (idx / 6) * 500 + 40;
+                          return (
+                            <text key={idx} x={x} y={230} fill="var(--text-muted)" fontSize="10" textAnchor="middle" fontFamily="Space Grotesk">
+                              Day +{d.step}
+                            </text>
+                          );
+                        })}
                       </svg>
-                      
-                      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', position: 'absolute', bottom: '0px', padding: '0 40px' }}>
-                        {forecastData.map((d, idx) => (
-                          <span key={idx} style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                            Day +{d.step}
-                          </span>
-                        ))}
-                      </div>
                     </div>
                   </div>
                 ) : (

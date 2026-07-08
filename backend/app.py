@@ -347,7 +347,7 @@ def get_forecast():
             "uncertainty_temp_max": float(round(np.nanmean(tmax_std), 2)) if not np.isnan(np.nanmean(tmax_std)) else 1.5,
             "uncertainty_temp_min": float(round(np.nanmean(tmin_std), 2)) if not np.isnan(np.nanmean(tmin_std)) else 1.2,
             "uncertainty_rain": float(round(np.nanmean(r_std), 2)) if not np.isnan(np.nanmean(r_std)) else 0.5,
-            "shap": tmax_shaps
+            "shap": tmax_shaps[step]
         })
         
     validation_stats = {
